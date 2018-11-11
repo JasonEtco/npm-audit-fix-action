@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^15.15.1",
+    "actions-toolkit": "0.0.2",
     "dedent": "^0.7.0",
     "execa": "^1.0.0"
   },
