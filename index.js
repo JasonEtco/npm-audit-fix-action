@@ -1,32 +1,24 @@
-const path = require('path')
 const runAudit = require('./lib/run-audit')
 const runAuditFix = require('./lib/run-audit-fix')
 const createPR = require('./lib/create-pr')
+const Toolkit = require('actions-toolkit')
 
-const pathToWorkspace = process.env.GITHUB_WORKSPACE || path.join(__dirname, '..', '..')
+const tools = new Toolkit()
 
-// Payload Vars
-const payload = require(process.env.GITHUB_EVENT_PATH)
-const owner = payload.repository.owner.login
-const repo = payload.repository.name
-
-runAudit(pathToWorkspace)
+runAudit(tools)
 .then(async ({ vulnerabilities, numVulnerabilities }) => {
   if (numVulnerabilities === 0) {
     console.log('No vulnerabilities found!')
     return
   }
 
-  const fixResult = await runAuditFix(pathToWorkspace)
+  const fixResult = await runAuditFix(tools)
   console.log(fixResult)
 
   return createPR({
     vulnerabilities,
     numVulnerabilities,
-    pathToWorkspace,
-    owner,
-    repo,
-    sha: process.env.GITHUB_SHA
+    tools
   })
 })
 .catch(err => {
