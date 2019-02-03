@@ -9,10 +9,8 @@ LABEL "repository"="http://github.com/JasonEtco/npm-audit-fix-action"
 LABEL "homepage"="http://github.com/JasonEtco/npm-audit-fix-action"
 LABEL "maintainer"="Jason Etcovitch <jasonetco@github.com>"
 
-ADD package.json /package.json
-ADD package-lock.json /package-lock.json
-WORKDIR /
-COPY . /
+COPY package*.json /
+COPY . .
 
 RUN npm ci
 
