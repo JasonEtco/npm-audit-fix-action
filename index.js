@@ -1,4 +1,4 @@
-const Toolkit = require('actions-toolkit')``
+const Toolkit = require('actions-toolkit')
 const runAudit = require('./lib/run-audit')
 const runAuditFix = require('./lib/run-audit-fix')
 const createPR = require('./lib/create-pr')
