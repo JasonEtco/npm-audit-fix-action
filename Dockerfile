@@ -5,8 +5,8 @@ LABEL "com.github.actions.description"="Runs an `npm audit fix` and opens a pull
 LABEL "com.github.actions.icon"="lock"
 LABEL "com.github.actions.color"="red"
 
-LABEL "repository"="http://github.com/JasonEtco/npm-audit-fix-action"
-LABEL "homepage"="http://github.com/JasonEtco/npm-audit-fix-action"
+LABEL "repository"="https://github.com/JasonEtco/npm-audit-fix-action"
+LABEL "homepage"="https://github.com/JasonEtco/npm-audit-fix-action"
 LABEL "maintainer"="Jason Etcovitch <jasonetco@github.com>"
 
 COPY package*.json /
